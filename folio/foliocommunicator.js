@@ -174,7 +174,7 @@ module.exports = class FolioCommunicator {
   async getPagingSlips() {
     try {
       let paged = await this._sendToFolioWithRetryOnInvalidToken('/circulation/requests?limit=100&query=(requestType="Page" and status="Open - Not yet filled") sortby requestDate', "GET", null)
-      let recalls = await this._sendToFolioWithRetryOnInvalidToken('/circulation/requests?limit=100&query=(requestType="Recall" and status="Open - Not yet filled") sortby requestDate', "GET", null)
+      let recalls = await this._sendToFolioWithRetryOnInvalidToken('/circulation/requests?limit=500&query=(requestType="Recall" and status="Open - Not yet filled") sortby requestDate', "GET", null)
 
       return [...paged.requests, ...recalls.requests.filter(request => request.item.status == 'In process')]
     } catch (error) {
