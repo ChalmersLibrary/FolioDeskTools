@@ -1,5 +1,7 @@
 <template>
   <div>
-    Help when books are missing on Paged books.
+    <b>Saknas boken på hyllan?</b>
+    1. Gör så här
+    2. ...
   </div>
 </template>
