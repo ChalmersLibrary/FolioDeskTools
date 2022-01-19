@@ -59,7 +59,7 @@ export default {
   middleware: 'auth',
   data() {
     return {
-      barcode: "0120437400",
+      barcode: null,
       user: null,
       pin1: null,
       pin2: null,
