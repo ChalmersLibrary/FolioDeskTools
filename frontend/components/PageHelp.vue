@@ -1,5 +1,6 @@
 <template>
   <div>
+  <br><br>
   <b>Status In process</b><br>
   HB: Finns i FjärrIn-rummet.<br>
 Hämta och checka in som vanligt.<br><br>
