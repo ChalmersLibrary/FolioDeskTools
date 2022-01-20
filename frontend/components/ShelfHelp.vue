@@ -1,6 +1,6 @@
 <template>
   <div>
-  <b>Saknas boken på reservationshyllan?</b>
+  <b>Saknas boken på reservationshyllan?</b><br>
     <ul>
     <li>HB &amp; Kuggen: Maila media.lib@chalmers.se. Kopiera infon på denna lista.</li>
     <li>Sätt Missing själv.</li>
