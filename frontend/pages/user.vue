@@ -2,7 +2,7 @@
   <div class="user">
     <h2>Pin code reset</h2>
     <label for="barcode">Barcode</label>
-    <input ref="barcode" v-model="barcode" type="text" v-on:keyup.enter="getUser" autofocus/>
+    <input ref="barcode" v-model="barcode" autocomplete="off" type="text" v-on:keyup.enter="getUser" autofocus/>
     <button @click="getUser">Hämta</button>
     <div v-if="user">
       <div>
@@ -16,7 +16,7 @@
       <div>External system id: {{ user.externalSystemId }}</div>
       <div v-if="pinMessage == null">
         <label for="pin1">Pin</label>
-        <input ref="pin1" type="password" v-model="pin1" />
+        <input ref="pin1" type="password" autocomplete="off" v-model="pin1" />
         <span class="warning" v-if="pin1 != null && pin1.length != 6">
           Pin must be six digits.
         </span>
@@ -25,12 +25,7 @@
         </span>
         <br />
         <label for="pin2">Pin again</label>
-        <input
-          ref="pin2"
-          type="password"
-          v-model="pin2"
-          v-on:keyup.enter="changePin()"
-        />
+        <input ref="pin2" type="password" v-model="pin2" autocomplete="off" v-on:keyup.enter="changePin()" />
         <br />
         <button
           v-if="
@@ -96,6 +91,7 @@ export default {
       }
     },
     clear() {
+      this.barcode = null
       this.user = null
       this.pin1 = null
       this.pin2 = null
@@ -105,4 +101,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  ::-ms-reveal {
+    display: none;
+  }
+</style>
