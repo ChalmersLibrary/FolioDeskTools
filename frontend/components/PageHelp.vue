@@ -1,6 +1,9 @@
 <template>
   <div>
-    <b>Saknas boken på hyllan?</b>
+  <b>Status In process</b><br>
+  HB: Finns i FjärrIn-rummet.
+Hämta och checka in som vanligt.<br>
+    <b>Saknas boken på hyllan?</b><br>
     <ul>
     <li>Om annat exemplar finns - flytta reservationen.</li>
     <li>HB &amp; Kuggen: Maila media.lib@chalmers.se. Kopiera infon på denna lista.</li>
