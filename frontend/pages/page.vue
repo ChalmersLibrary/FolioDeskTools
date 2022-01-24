@@ -23,8 +23,7 @@
           Separate Pages
         </label>
       </div>
-      <div class="request avoidPageBreak" v-for="request in requests.filter(
-        request  => request.item.location.libraryName === this.selectedLibrary && request.item.status !== 'Missing').sort((a,b) => {
+      <div class="request avoidPageBreak" v-for="request in requests.filter(request  => request.item.location.libraryName === this.selectedLibrary).sort((a,b) => {
             let location = a.item.location.name.localeCompare(b.item.location.name);
             let callNumber = (a.item.callNumber && b.item.callNumber) ? a.item.callNumber.localeCompare(b.item.callNumber) : -1;
             let suffix = (a.item.callNumberComponents.suffix && b.item.callNumberComponents.suffix) ? a.item.callNumberComponents.suffix.localeCompare(b.item.callNumberComponents.suffix) : -1; 
@@ -121,7 +120,7 @@ export default {
       this.updated = Date.now()
       this.finishedLoading = false
       let slips = await this.$axios.$get('/api/getPagingSlips')
-      this.requests = slips
+      this.requests = slips.filter(request  => request.item.status !== 'Missing')
       this.finishedLoading = true
     }
   },
