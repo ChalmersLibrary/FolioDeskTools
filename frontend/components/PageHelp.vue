@@ -4,7 +4,7 @@
   <b>Status In process</b><br>
    <ol>
   <li>HB &amp; Kuggen: Hämta i FjärrIn-rummet på HB. (Kan även arbetas med av förvärvare/katalogisatör.)<br>
-  ACE: Finns på katalogiseringshyllan.</li>
+  ACE: Hämta på katalogiseringshyllan.</li>
   <li>Checka in som vanligt.</li>
  </ol>
     <b>Om boken saknas på hyllan</b><br>
