@@ -7,7 +7,7 @@
   ACE: Finns på katalogiseringshyllan.</li>
   <li>Checka in som vanligt.</li>
  </ol>
-    <b>Saknas boken på hyllan?</b><br>
+    <b>Om boken saknas på hyllan</b><br>
     <ol>
     <li>Om annat exemplar finns - flytta reservationen.</li>
     <li>HB &amp; Kuggen: Maila media.lib@chalmers.se. Kopiera infon på denna lista.<br>
