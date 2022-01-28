@@ -2,9 +2,11 @@
   <div>
   <br><br>
   <b>Status In process</b><br>
-  HB &amp; Kuggen: Finns i FjärrIn-rummet.<br>
-  ACE: Finns på katalogiseringshyllan.<br>
-Hämta och checka in som vanligt.<br><br>
+   <ul>
+  <li>HB &amp; Kuggen: Finns i FjärrIn-rummet på HB eller arbetas med av förvärvare/katalogisatör.<br>
+  ACE: Finns på katalogiseringshyllan.</li>
+  <li>Hämta och checka in som vanligt.</li>
+ </ul>
     <b>Saknas boken på hyllan?</b><br>
     <ul>
     <li>Om annat exemplar finns - flytta reservationen.</li>
