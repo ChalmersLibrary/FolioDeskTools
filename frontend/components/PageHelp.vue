@@ -3,7 +3,7 @@
   <br><br>
   <b>Status In process</b><br>
    <ol>
-  <li>HB &amp; Kuggen: Hämta i FjärrIn-rummet på HB. (Kan även arbetas med av förvärvare/katalogisatör.)<br>
+  <li>HB &amp; Kuggen: Hämta i FjärrIn-rummet på HB.<br>
   ACE: Hämta på katalogiseringshyllan.</li>
   <li>Checka in som vanligt.</li>
  </ol>
