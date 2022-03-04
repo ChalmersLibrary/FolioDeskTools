@@ -9,9 +9,9 @@
  </ol>
     <b>Saknas boken?</b><br>
     <ol>
-    <li>Om annat exemplar finns - flytta reservationen.</li>
+    <li>Om annat exemplar finns: Flytta reservationen.</li>
     <li>HB &amp; Kuggen: Maila media.lib@chalmers.se med infon från denna lista. Gör inget med reservationen.<br>
-    ACE: Tag bort reservationen och maila låntagaren.</li>
+    ACE: Ta bort reservationen och maila låntagaren.</li>
     <li>Sätt därefter exemplaret som Missing.</li>
     </ol>
 <a href="https://chalmersuniversity.app.box.com/s/x6fjirc33ly9tykltqah0eo1xf2oove2/file/710097023701">Mer info om missing</a>
