@@ -3,6 +3,7 @@
 @user = {{$dotenv OKAPIUSER}}
 @pwd = {{$dotenv OKAPIPWD}}
 @token = {{login.response.headers.x-okapi-token}}
+@bearer = {{getpwatoken.response.body.token}}
 
 # @name login
 POST {{okapi}}/authn/login
@@ -16,17 +17,18 @@ Content-Type: application/json
 }
 
 ###
-POST https://foliodesktools.azurewebsites.net/api/session/login
+# @name getpwatoken
+POST https://foliodekstools.azurewebsites.net/api/session/login
 Content-Type: application/json
 
 {
-  "username":"cirkl",
-  "password":"zcirkl"
+  "username":"cirkh",
+  "password":"banan"
 }
 
 ###
-GET https://foliodesktools.azurewebsites.net/api/session/user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiY2lya2wifSwiaWF0IjoxNjQwMTc4NjMwLCJleHAiOjE2NDAxODU4MzB9.M9BgZ64mYb5DQC57DUUal-tHPE8v1d9Oui1ZBLZS77U
+GET https://foliodekstools.azurewebsites.net/api/session/user
+Authorization: Bearer {{bearer}}
 
 ###
 POST http://localhost:3000/api/session/login
@@ -81,6 +83,7 @@ x-okapi-tenant: {{tenant}}
 Accept: application/json
 
 ###
+# @name localpwatoken
 POST http://localhost:8080/api/session/login
 Content-Type: application/json
 
@@ -89,9 +92,11 @@ Content-Type: application/json
   "password":"zcirkl"
 }
 
+@localbearer = {{localpwatoken.response.body.token}}
+
 ###
 GET http://localhost:8080/api/user/0120437400
-Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiY2lya2wifSwiaWF0IjoxNjQwMDAwMjk1LCJleHAiOjE2NDAwMDc0OTV9.j47yYsl1gfoq1lx9llXr0u6j6fazEyWmyNPPrY0X2M8"
+Authorization: "Bearer {{localbearer}}"
 
 ###
 GET {{okapi}}/users?query=(barcode="0120437400" or username="0120437400")
