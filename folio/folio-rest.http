@@ -92,3 +92,9 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/api/user/0120437400
 Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiY2lya2wifSwiaWF0IjoxNjQwMDAwMjk1LCJleHAiOjE2NDAwMDc0OTV9.j47yYsl1gfoq1lx9llXr0u6j6fazEyWmyNPPrY0X2M8"
+
+###
+GET {{okapi}}/users?query=(barcode="0120437400" or username="0120437400")
+x-okapi-token: {{token}}
+x-okapi-tenant: {{tenant}}
+Accept: application/json

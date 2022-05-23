@@ -15,14 +15,16 @@
 
 <style scoped>
 .menu {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 .menu-btn {
+  margin: .1rem;
   padding: .2rem;
   border: 1px solid;
   border-radius: 7px;
   text-decoration: none;
   cursor: pointer;
+  display:inline-block;
 }
 </style>
 

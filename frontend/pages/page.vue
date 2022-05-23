@@ -131,13 +131,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .btn {
     border: 1px solid black;
     border-radius: 5px;
     padding: .2rem;
     margin-right: .5rem;
-    margin-bottom: 5rem;
+    margin-bottom: .5rem;
     cursor: pointer;
   }
   .bottom-margin {

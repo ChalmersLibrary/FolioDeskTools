@@ -11,6 +11,7 @@ const okapiPwd = process.env.OKAPIPWD
 const okapiTenant = process.env.OKAPITENANT
 const jwtSecret = process.env.JWTSECRET
 const users = JSON.parse(process.env.USERS)
+const deniedGroups = process.env.DENIEDGROUPS
 
 let folio = new folioCommunicator(okapiUrl, okapiUser, okapiPwd, okapiTenant)
 
@@ -61,9 +62,10 @@ router.get('/user/:barcode', verifyToken, async (req,res) => {
   let barcode = req.params.barcode
   try {
     let user = await folio.getUserWithBarcode(barcode)
+    user.pwdReset = deniedGroups.includes(user.patronGroup)?false:true
     res.json(user)
   } catch (error) {
-    res.status(5000).send(errror.message)
+    res.status(500).send(error.message)
   }
 })
 

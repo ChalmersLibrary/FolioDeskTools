@@ -102,7 +102,7 @@ module.exports = class FolioCommunicator {
 
   async getUserWithBarcode(barcode) {
     let path = "/users?limit=1&query=";
-    let query = '(barcode="' + barcode + '")';
+    let query = '(barcode="' + barcode + '" or username="' + barcode + '")';
 
     let data = await this._sendToFolioWithRetryOnInvalidToken(path + 
       query, "GET", null);

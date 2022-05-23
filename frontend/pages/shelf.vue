@@ -102,20 +102,21 @@ export default {
     border: 1px solid black;
     border-radius: 5px;
     padding: .2rem;
-    margin-right: .5rem;
+    margin: .2rem;
     cursor: pointer;
+    display: inline-block;
   }
 
-  .shelfList {
+  /* .shelfList {
     margin-bottom: 1rem;
-  }
+  } */
 
   .active {
     background: blue;
     color: white;
   }
   .servicePoints {
-    margin-bottom: 1rem;
+    display: flex;
   }
   .buttons {
     margin-bottom: 1rem;

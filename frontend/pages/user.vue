@@ -14,7 +14,7 @@
       <div>Active: {{ user.active }}</div>
       <div>Email: {{ user.personal.email }}</div>
       <div>External system id: {{ user.externalSystemId }}</div>
-      <div v-if="pinMessage == null">
+      <div v-if="user.pwdReset && user.active == true">
         <label for="pin1">Pin</label>
         <input ref="pin1" type="password" autocomplete="off" v-model="pin1" />
         <span class="warning" v-if="pin1 != null && pin1.length != 6">
@@ -40,69 +40,88 @@
         </button>
         <div v-else>Enter matching pin codes.</div>
       </div>
-      <div v-else>
-        <br />
-        {{ pinMessage }} <br />
-        <button ref="clear" @click="clear()">Clear</button>
+      <br />
+      <div class="pinMessage" v-if="pinMessage">
+        {{ pinMessage }}
       </div>
+      <button ref="clear" @click="clear()">Clear</button>
     </div>
+    <div v-else-if="searched">
+      User not found.
+    </div>
+    <PinHelp />
   </div>
 </template>
 
 <script>
+import PinHelp from "~/components/PinHelp.vue";
 export default {
-  middleware: 'auth',
-  data() {
-    return {
-      barcode: null,
-      user: null,
-      pin1: null,
-      pin2: null,
-      pinMessage: null
-    };
-  },
-  methods: {
-    async getUser() {
-      try {
-        const user = await this.$axios.$get(`/api/user/${this.barcode}`);
-        this.user = user
-        // let res = await fetch(`/api/user/${this.barcode}`);
-        // this.user =  await res.json();        
-      } catch (error) {
-        console.log(error.message)
-      }
+    middleware: "auth",
+    data() {
+        return {
+            barcode: null,
+            user: null,
+            pin1: null,
+            pin2: null,
+            pinMessage: null,
+            searched: false
+        };
     },
-    async changePin() {
-      let data = {
-        username: this.user.username,
-        password: this.pin1
-      }
-      try {
-        await this.$axios.$post('/api/user/changepin', data)        
-        // let res = await fetch('/api/user/changepin', options)
-        this.pin1 = null
-        this.pin2 = null
-        this.pinMessage = 'Pin changed successfully'
-      } catch (error) {
-        console.log(error.message);
-        this.pin1 = null
-        this.pin2 = null
-        this.pinMessage = 'Something went wrong'
-      }
+    methods: {
+        async getUser() {
+          this.pinMessage = null
+          this.searched = true
+          try {
+              const user = await this.$axios.$get(`/api/user/${this.barcode}`);
+              this.user = user;
+              if(user.pwdReset == false) {
+                this.pinMessage = "Pin reset not allowed"
+              }
+              if(user.active != true) {
+                this.pinMessage = "User not active"
+              }
+          }
+          catch (error) {
+              this.user = null
+              console.log(error.message);
+          }
+        },
+        async changePin() {
+            let data = {
+                username: this.user.username,
+                password: this.pin1
+            };
+            try {
+                await this.$axios.$post("/api/user/changepin", data);
+                this.pin1 = null;
+                this.pin2 = null;
+                this.pinMessage = "Pin changed successfully";
+            }
+            catch (error) {
+                console.log(error.message);
+                this.pin1 = null;
+                this.pin2 = null;
+                this.pinMessage = "Something went wrong";
+            }
+        },
+        clear() {
+            this.barcode = null;
+            this.user = null;
+            this.pin1 = null;
+            this.pin2 = null;
+            this.pinMessage = null;
+            this.searched = false;
+        }
     },
-    clear() {
-      this.barcode = null
-      this.user = null
-      this.pin1 = null
-      this.pin2 = null
-      this.pinMessage = null
-    }
-  },
+    components: { PinHelp }
 };
 </script>
 
 <style>
   ::-ms-reveal {
     display: none;
+  }
+  .pinMessage {
+    color: red;
   }
 </style>

@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>Welcome to the Folio-Web-App</h1>
+    <h1>Folio-Web-App</h1>
+    <MainInfo />
   </div>
 </template>
 
 <script>
-export default {}
+import MainInfo from "~/components/MainInfo.vue";
+export default { components: { MainInfo } }
 </script>
