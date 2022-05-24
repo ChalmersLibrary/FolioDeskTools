@@ -107,9 +107,9 @@ export default {
     display: inline-block;
   }
 
-  /* .shelfList {
+  .shelfList {
     margin-bottom: 1rem;
-  } */
+  }
 
   .active {
     background: blue;
