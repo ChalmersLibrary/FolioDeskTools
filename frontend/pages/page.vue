@@ -47,12 +47,12 @@
           <div class="authors">
             <strong>Author/s:</strong>
             <span
-              v-for="author in request.item.contributorNames"
+              v-for="author in request.instance.contributorNames"
               v-html="author.name" :key="author.name"
             >
             </span>
           </div>
-          <strong>Title:</strong> <span>{{ request.item.title }}</span>
+          <strong>Title:</strong> <span>{{ request.instance.title }}</span>
         </div>
         <div>
           <strong>Barcode:</strong>
