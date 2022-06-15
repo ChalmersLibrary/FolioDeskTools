@@ -16,7 +16,7 @@
           <strong>Patron name:</strong>
           {{ request.requester.lastName }}, {{ request.requester.firstName
           }}<br />
-          <strong>Title:</strong> {{ request.item.title }} ({{
+          <strong>Title:</strong> {{ request.instance.title }} ({{
           request.item.barcode }})<br />
           <!-- Exemplar kod: {{ request.item.barcode }}<br /> -->
           <strong>CallNumber:</strong> {{ request.item.callNumber }}
