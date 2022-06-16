@@ -1,6 +1,14 @@
 <template>
   <div>
   <br><br>
+  <b>BUGG! GAMMALT DATUM = FEL NAMN VISAS!</b></br>
+  Workaround:</br>
+  <ul>
+  <li>Kopiera varcode och sök upp i Reqests.</li>
+  <li>Titta på den senaste requesten och notera namnet.</li>
+  <li>Leta på detta namn på reservationshyllan.</li>
+  </ul>
+  <br><br>
   <b>Saknas boken på reservationshyllan? </b><br>
     <ul>
     <li>HB &amp; Kuggen: Maila media.lib@chalmers.se. Kopiera infon på denna lista.</li>
