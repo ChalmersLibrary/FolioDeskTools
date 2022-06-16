@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1>App på dator och mobil</h1>
-    <h2>Skapa applikation med Microsoft Edge</h2>
-    <p>Genom att klicka på ikonen nedan som finns i urlfältet så kan du göra denna web-app till en "stand-alone" applikation på datorn.</p>
+    <h2>Du måste vara på Chalmers nät</h2>
+    <p>Det fungerar även på VPN, men inte Always on VPN.</p>
+    <h2>Skapa app på dator - Microsoft Edge och Chrome</h2>
+    <p>I URL-fältet finns en ikon. Klicka på den så installeras appen och du kan lägga den i verktygsfältet på datorn.</p>
+    <p>Edge-ikonen visas nedan, i Chrome liknar den en dator med pil nedåt.</p>
     <img src="/install-web-app-icon-edge.png">
-    <h2>Skapa webapp på mobilen</h2>
-    <h3>Android</h3>
-    <p>Instruktioner kommer så småningom</p>
+    <h2>Tips för att använda på mobilen</h2>
+    <p>Lägg länken på startsidan / hemskärmen.</p>
+    <p>Använd gärna liggande skärm.</p>
     <h3>iPhone</h3>
-    <p>Klicka på dela länk i verktysfältet och sedan "Lägg till på hemskärmen"</p>
+    <p>Klicka på dela länk i verktygsfältet och sedan "Lägg till på hemskärmen"</p>
   </div>
 </template>
