@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Folio-Web-App</h1>
+    <h1>FOLIO Diskapp</h1>
     <MainInfo />
   </div>
 </template>
