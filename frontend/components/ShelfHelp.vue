@@ -4,9 +4,9 @@
   <b>BUGG! GAMMALT DATUM = FEL NAMN VISAS!</b></br>
   Workaround:</br>
   <ul>
-  <li>Kopiera varcode och sök upp i Reqests.</li>
+  <li>Kopiera barcode och sök upp i Reqests.</li>
   <li>Titta på den senaste requesten och notera namnet.</li>
-  <li>Leta på detta namn på reservationshyllan.</li>
+  <li>Leta på detta namn på reservationshyllan och återlämna som vanligt.</li>
   </ul>
   <br><br>
   <b>Saknas boken på reservationshyllan? </b><br>
