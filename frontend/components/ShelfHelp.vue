@@ -1,13 +1,8 @@
 <template>
   <div>
   <br><br>
-  <b>BUGG! GAMMALT DATUM = FEL NAMN VISAS!</b></br>
-  Workaround:</br>
-  <ul>
-  <li>Kopiera barcode och sök upp i Reqests.</li>
-  <li>Titta på den senaste requesten och notera namnet.</li>
-  <li>Leta på detta namn på reservationshyllan och återlämna som vanligt.</li>
-  </ul>
+  <b>BUGG! LISTAN STÄMMER INTE!</b></br>
+  <b>Kolla istället datum på väntehyllan manuellt.</b></br>
   <br><br>
   <b>Saknas boken på reservationshyllan? </b><br>
     <ul>
