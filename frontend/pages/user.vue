@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-    <h2>Pin code reset</h2>
+    <h2>PIN code reset</h2>
     <label for="barcode">Barcode</label>
     <input ref="barcode" v-model="barcode" autocomplete="off" type="text" v-on:keyup.enter="getUser" autofocus/>
     <button @click="getUser">Hämta</button>
