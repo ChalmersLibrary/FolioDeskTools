@@ -23,7 +23,8 @@
           {{request.item.callNumberComponents.suffix}}<br />
           <strong>Request status:</strong> {{ request.status }} <br />
           <strong>HoldshelfExpiration:</strong>
-          {{ request.holdShelfExpirationDate.substring(0, 10) }}
+          <span v-if="request.holdShelfExpirationDate != undefined">{{ request.holdShelfExpirationDate.substring(0, 10) }}</span>
+          <span v-else>-</span>
           <br />
         </div>
       </div>
