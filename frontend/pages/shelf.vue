@@ -14,8 +14,7 @@
         </div>
         <div class="shelfList" v-for="request in sortedShelfList" :key="request.id">
           <strong>Patron name:</strong>
-          {{ request.requester.lastName }}, {{ request.requester.firstName
-          }}<br />
+          {{ request.requester.firstName }}<br />
           <strong>Title:</strong> {{ request.instance.title }} ({{
           request.item.barcode }})<br />
           <!-- Exemplar kod: {{ request.item.barcode }}<br /> -->
@@ -85,10 +84,10 @@ export default {
     },
     sortedShelfList() {
       return this.shelfList.sort((a, b) => {
-        if (a.requester.lastName < b.requester.lastName) {
+        if (a.requester.firstName < b.requester.firstName) {
           return -1
         }
-        if (a.requester.lastName > b.requester.lastName) {
+        if (a.requester.firstName > b.requester.firstName) {
           return 1
         }
         return 0
