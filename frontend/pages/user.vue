@@ -41,6 +41,7 @@
         <div v-else>Enter matching pin codes.</div>
       </div>
       <br />
+      <div class="pinMessageOk" v-if="pinMessageOk">{{ pinMessageOk }}</div>
       <div class="pinMessage" v-if="pinMessage">
         {{ pinMessage }}
       </div>
@@ -87,6 +88,7 @@ export default {
           }
         },
         async changePin() {
+          if(this.pin1 == this.pin2) {
             let data = {
                 username: this.user.username,
                 password: this.pin1
@@ -95,7 +97,8 @@ export default {
                 await this.$axios.$post("/api/user/changepin", data);
                 this.pin1 = null;
                 this.pin2 = null;
-                this.pinMessage = "Pin changed successfully";
+                this.pinMessageOk = "Pin changed successfully";
+                this.pinMessage="";
             }
             catch (error) {
                 console.log(error.message);
@@ -103,6 +106,10 @@ export default {
                 this.pin2 = null;
                 this.pinMessage = "Something went wrong";
             }
+          } else {
+            this.pinMessage = "Pin codes don't match!"
+            this.pinMessageOk = ""
+          }
         },
         clear() {
             this.barcode = null;
@@ -123,5 +130,8 @@ export default {
   }
   .pinMessage {
     color: red;
+  }
+  .pinMessageOk {
+    color: green;
   }
 </style>
