@@ -76,8 +76,7 @@
         </div>
         <div v-if="request.item.location.libraryName == 'Bibliotekssystem'">
           <strong>Request ID</strong>
-          <!-- <span><a :href='https://chalmers.folio.ebsco.com/requests/view/' + request.id + '?filters=requestStatus.Open%20-%20Not%20yet%20filled%2CrequestType.Recall&sort=requestDate'>{{  request.id }}</a></span> -->
-          <span>{{ request.id }}</span>
+          <span><a target="_blank" :href="instanceLink(request.id)">{{  request.id }}</a></span>
         </div>
         <div v-if="separatePages" class="pagebreak"></div>
       </div>
@@ -145,6 +144,9 @@ export default {
         }
       })
       this.finishedLoading = true
+    },
+    instanceLink(id) {
+      return `https://chalmers.folio.ebsco.com/requests/view/${id}/?filters=requestStatus.Open%20-%20Not%20yet%20filled`
     }
   },
   mounted() {
