@@ -74,6 +74,11 @@
             {{ request.requester.lastName }} {{ request.requester.firstName }} {{ request.requester.middleName }} -- {{ request.requester.patronGroup.group}}
           </span>
         </div>
+        <div v-if="request.item.location.libraryName == 'Bibliotekssystem'">
+          <strong>Request ID</strong>
+          <!-- <span><a :href='https://chalmers.folio.ebsco.com/requests/view/' + request.id + '?filters=requestStatus.Open%20-%20Not%20yet%20filled%2CrequestType.Recall&sort=requestDate'>{{  request.id }}</a></span> -->
+          <span>{{ request.id }}</span>
+        </div>
         <div v-if="separatePages" class="pagebreak"></div>
       </div>
     </div>
@@ -120,7 +125,25 @@ export default {
       this.updated = Date.now()
       this.finishedLoading = false
       let slips = await this.$axios.$get('/api/getPagingSlips')
-      this.requests = slips.filter(request  => request.item.status !== 'Missing')
+      this.requests = slips.filter(request  => {
+        if (request.item === undefined) {
+          console.log("I'm here!");
+          let item = {}
+          item.status = 'Kolla i FOLIO'
+          item.barcode = 'Kolla i FOLIO'
+          item.location = {
+            name : 'Kolla i FOLIO',
+            libraryName : 'Bibliotekssystem' }
+          item.callNumber = 'Kolla i FOLIO'
+          item.callNumberComponents = { suffix : 'Kolla i FOLIO' }
+          request.item = item
+          // console.log(request);
+          // console.log(item);
+        }
+        if (request.item !== undefined && request.item.status !== 'Missing') {
+          return request
+        }
+      })
       this.finishedLoading = true
     }
   },
