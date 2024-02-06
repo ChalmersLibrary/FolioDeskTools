@@ -54,6 +54,14 @@
           </div>
           <strong>Title:</strong> <span>{{ request.instance.title }}</span>
         </div>
+        <div v-if="request.instance.editions!=null">
+          <strong>Edition:</strong>
+          <span>{{ request.instance.editions[0] }}</span>
+        </div>
+        <!-- <div>
+          {{ request.instance.editions!=null?request.instance.editions[0]:'Null' }}
+          <pre>{{ JSON.stringify(request.instance,null,2)}}</pre>
+        </div> -->
         <div>
           <strong>Barcode:</strong>
           <span>{{ request.item.barcode }}</span>
