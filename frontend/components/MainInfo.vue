@@ -13,5 +13,6 @@
     Lägg gärna länken på startskärmen. <br>
     Liggande skärm fungerar bäst.<br>
     Iphone: Klicka på dela länk i verktygsfältet och sedan "Lägg till på hemskärmen"</p>
+    <Nyheter />
   </div>
 </template>
