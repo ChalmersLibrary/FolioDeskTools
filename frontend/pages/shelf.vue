@@ -12,7 +12,7 @@
         <div class="noprint buttons">
           <span class="btn" @click="print()">Print</span>
         </div>
-        <div class="shelfList" v-for="request in sortedShelfList" :key="request.id">
+        <div class="shelfList avoidPageBreak" v-for="request in sortedShelfList" :key="request.id">
           <strong>Patron name:</strong>
           {{ request.requester.firstName }}<br />
           <strong>Title:</strong> {{ request.instance.title }} ({{
@@ -30,7 +30,7 @@
       <div class="shelfList" v-else>
         Nothing to remove from shelf.
       </div>
-      <ShelfHelp />
+      <ShelfHelp class="noprint"/>
     </div>
   </div>
 </template>
