@@ -91,7 +91,7 @@
     </div>
     <div v-else-if="selectedLibrary=='' && updated!=null && requests.length>0">Select a library above.</div>
     <div v-else-if="updated!=null">Nothing paged</div>
-    <PageHelp />
+    <PageHelp class="noprint"/>
   </div>
 </template>
 
