@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Välkommen kollega på Chalmers bibliotek!</h2>
+    <p><strong>Inloggningsuppgifter finns i Infodiskmanualen</strong></p>
     <p>Här kan du rensa reservationshyllan, skapa framplockningslistor och byta PIN-kod.<br>
     Du måste vara på Chalmers nätverk. Diskappen fungerar även på VPN, men inte Always on VPN.</p>
     <br><br>
