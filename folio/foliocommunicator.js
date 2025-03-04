@@ -1,4 +1,6 @@
-const fetch = require('node-fetch')
+const nodeFetch = require('node-fetch')
+const fetch = require('fetch-cookie')(nodeFetch)
+
 
 module.exports = class FolioCommunicator {
   constructor(url, username, password, tenant) {
@@ -6,7 +8,6 @@ module.exports = class FolioCommunicator {
     this.username = username;
     this.password = password;
     this.tenant = tenant;
-    this.token = "";
   }
 
   convertToUsername(value) {
@@ -202,7 +203,7 @@ module.exports = class FolioCommunicator {
   }
 
   async _login () {
-    let url = this.url + '/authn/login'
+    let url = this.url + '/authn/login-with-expiry'
     let data = {
       username: this.username,
       password: this.password
@@ -220,7 +221,6 @@ module.exports = class FolioCommunicator {
 
     try {
       let response = await fetch(url, options);
-      this.token = response.headers.get('x-okapi-token')
     } catch (error) {
       error.message = "Failed to login to FOLIO: " + error.message;
       throw error;
@@ -249,10 +249,6 @@ module.exports = class FolioCommunicator {
   async _sendToFolioWithRetryOnInvalidToken(path, method, data) {
     let res;
 
-    if (!this.token) {
-      await this._login();
-    }
-
     try {
       res = await this._send(path, method, data, true);
       if (res.status >=400) {
@@ -262,6 +258,11 @@ module.exports = class FolioCommunicator {
     } catch (error) {
       error.message = "Failed to send data to FOLIO: " + error.message;
       throw error;
+    }
+    if(!res.ok) {
+      throw new Error(res);
+      console.log(JSON.stringify(res,0,2));
+      
     }
     if(res.status == 201 || res.status == 204) {
       return res
@@ -280,7 +281,6 @@ module.exports = class FolioCommunicator {
           method: method,
           body: JSON.stringify(data),
           headers: {
-            "x-okapi-token": this.token,
             "x-okapi-tenant": this.tenant,
             Accept: "application/json",
             "Content-type": "application/json"
@@ -290,7 +290,6 @@ module.exports = class FolioCommunicator {
         options = {
           method: method,
           headers: {
-            "x-okapi-token": this.token,
             "x-okapi-tenant": this.tenant,
             Accept: "application/json",
           }
