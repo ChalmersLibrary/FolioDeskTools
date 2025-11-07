@@ -185,7 +185,7 @@ module.exports = class FolioCommunicator {
 
   async getServicePointsWithHoldShelf() {
     try {
-      let response = await this._sendToFolioWithRetryOnInvalidToken('/service-points', "GET", null)
+      let response = await this._sendToFolioWithRetryOnInvalidToken('/service-points?limit=15', "GET", null)
       let sp = response.servicepoints.filter(lib => lib.holdShelfExpiryPeriod != null)
       return sp
     } catch (error) {
